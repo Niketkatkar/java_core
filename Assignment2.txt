@@ -1,0 +1,295 @@
+16.
+import java.util.Scanner;
+class Question16{
+  public static void main(String args[]){
+    int n, reverse = 0;
+	System.out.println("Enter a number :");
+    Scanner sc = new Scanner(System.in);
+    n = sc.nextInt();
+
+    while(n != 0)
+    {
+      reverse = reverse * 10;
+      reverse = reverse + n%10;
+      n = n/10;
+    }
+
+    System.out.println("Reverse of the number is: " + reverse);
+  }
+}
+17.
+import java.util.Scanner;
+	class Question17
+	{
+		public static void main(String[] args)
+		{
+			Scanner scan=new Scanner(System.in);
+			System.out.print("Enter a number: ");
+			int num=scan.nextInt();
+			int x=num/2;
+			boolean flag=true;
+			if(num==0||num==1)
+			{
+				System.out.println("Not a prime number.");
+			}
+			else
+			{
+				for(int i=2; i<=x; i++)
+				{
+					if(num%i==0)
+					{
+						flag=false;
+					}
+				}
+				if(flag==true)
+				{
+					System.out.print("Prime number");
+				}
+				else
+				{
+					System.out.println("Not a Prime number.");
+				}
+			}
+		}
+	}
+
+18.
+import java.util.Scanner;
+class Question18{
+		public static void main(String[] args){
+			Scanner sc=new Scanner(System.in);
+			System.out.print("Enter a number:");
+			int num=sc.nextInt();
+			int x=num/2;
+			boolean flag=true;
+			if(num==0||num==1)
+			{
+				System.out.println("Not a prime number.");
+			}
+			else
+			{
+				for(int i=2; i<=x; i++)
+				{
+					if(num%i==0)
+					{
+						flag=false;
+					}
+				}
+				if(flag==true)
+				{
+					System.out.print("Prime number");
+				}
+				else
+				{
+					System.out.println("Not a Prime number.");
+				}
+			}
+		}
+	}
+19.
+import java.util.Scanner;
+class Question19{
+		public static void main(String[] args){
+			int a=12,sum=0;
+		
+			for(int i=1; i<10; i++)
+			{
+				sum=a+sum;
+				a=a+10;
+			}
+			System.out.println("Sum: "+sum);
+		}
+	}
+
+20.
+import java.util.Scanner;
+class Question20{
+		public static void main(String[] args){
+			Scanner sc=new Scanner(System.in);
+			System.out.print("Enter lower range: ");
+			int lower=sc.nextInt();
+			System.out.print("Enter upper range: ");
+			int upper=sc.nextInt();
+
+			for(int i=lower; i<=upper; i++)
+			{
+				int x=i/2;
+				if(i==0||i==1)
+				{
+				}
+				else
+				{
+					boolean flag=true;
+					for(int j=2; j<=x; j++)
+					{
+						if(i%j==0)
+						{
+							flag=false;
+						}
+					}
+					if(flag==true)
+					{
+						System.out.println(i);
+					}
+				}
+			}
+		}
+	}
+21.
+import java.util.Scanner;
+class Question21{
+    public static void main(String[] args) {
+        int n, temp;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter no. of elements you want in array:");
+        n = sc.nextInt();
+        int a[] = new int[n];
+        System.out.println("Enter all the elements:");
+        for(int i=0;i<n;i++) 
+        {
+            a[i]=sc.nextInt();
+        }
+        for(int i=0;i<n;i++) 
+        {
+            for(int j=i+1;j<n;j++) 
+            {
+                if(a[i]<a[j]) 
+                {
+                    temp=a[i];
+                    a[i]=a[j];
+                    a[j]=temp;
+                }
+            }
+        }
+        System.out.print("Descending Order:");
+        for(int i=0;i<n-1;i++) 
+        {
+            System.out.print(a[i] + ",");
+        }
+        System.out.print(a[n-1]);
+    }
+}
+22.
+import java.util.Scanner;
+class Question22{
+    public static void main(String[] args) {
+        int n, temp;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter no. of elements you want in array:");
+        n = sc.nextInt();
+        int a[] = new int[n];
+        System.out.println("Enter all the elements:");
+        for(int i=0;i<n;i++) 
+        {
+            a[i]=sc.nextInt();
+        }
+        for(int i=0;i<n;i++) 
+        {
+            for(int j=i+1;j<n;j++) 
+            {
+                if(a[i]<a[j]) 
+                {
+                    temp=a[i];
+                    a[i]=a[j];
+                    a[j]=temp;
+                }
+            }
+        }
+        System.out.print("Descending Order:");
+        for(int i=0;i<n-1;i++) 
+        {
+            System.out.print(a[i]);
+        }
+        System.out.print(a[n-1]);
+    }
+}
+23.
+import java.util.Scanner;
+classQuestion23{
+    public static void main(String[] args){
+        int n,x,flag=0,i=0;
+        Scanner sc= new Scanner(System.in);
+        System.out.print("Enter no. of elements in array:");
+        n = sc.nextInt();
+        int a[] = new int[n];
+        System.out.println("Enter all the elements:");
+        for(i=0;i<n;i++)
+        {
+            a[i]=sc.nextInt();
+        }
+        System.out.print("Enter the element to find:");
+        x=sc.nextInt();
+        for(i=0;i<n;i++)
+        {
+            if(a[i]==x)
+            {
+                flag=1;
+                break;
+            }
+            else
+            {
+                flag=0;
+            }
+        }
+        if(flag==1)
+        {
+            System.out.println("Element found at:"+(i + 1));
+        }
+        else
+        {
+            System.out.println("Element not found");
+        }
+    }
+}
+24.
+import java.util.Scanner;
+class Question24{
+    public static void main(String[] args){
+        int n,x,flag=0,i=0;
+        Scanner sc= new Scanner(System.in);
+        System.out.print("Enter no. of elements in array:");
+        n = sc.nextInt();
+        int a[] = new int[n];
+        System.out.println("Enter all the elements:");
+        for(i=0;i<n;i++)
+        {
+            a[i]=sc.nextInt();
+        }
+        System.out.print("Enter the element to find:");
+        x=sc.nextInt();
+        for(i=0;i<n;i++)
+        {
+            if(a[i]==x)
+            {
+                flag=1;
+                break;
+            }
+            else
+            {
+                flag=0;
+            }
+        }
+        if(flag==1)
+        {
+            System.out.println("Element found at:"+(i + 1));
+        }
+        else
+        {
+            System.out.println("Element not found");
+        }
+    }
+}
+25.
+import java.util.Scanner;
+class Question25{
+		public static void main(String[] args){
+			int a=12,sum=0;
+		
+			for(int i=1; i<10; i++)
+			{
+				sum=a+sum;
+				a=a+10;
+			}
+			System.out.println("Sum: "+sum);
+		}
+	}

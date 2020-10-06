@@ -1,0 +1,204 @@
+26.
+
+import java.util.Scanner;
+class Question26{
+	public static void main(String[] args){
+		Scanner sc =new Scanner(System.in);
+		int [][]ar=new int[3][4];
+
+		for(int i=0;i<ar.length;i++){
+			for(int j=0;j<ar[i].length;j++){
+				ar[i][j]=sc.nextInt();
+			}
+		}
+		int sum=0;
+		for(int i=0;i<ar.length;i++){
+			for(int j:ar[i]){
+				sum=sum+j;
+			}  
+		}
+		System.out.println("sum "+sum);
+	}
+}
+
+27.
+import java.util.Scanner;
+class Question27{
+	public static void main(String[] args){
+		Scanner scan=new Scanner(System.in);
+		System.out.print("How many numbers: ");
+		int n= scan.nextInt();
+		int arr[]=new int[n];
+			
+		for(int i=0; i<arr.length; i++){
+			arr[i]=scan.nextInt();
+		}
+			
+		int max=arr[0];
+		for(int i=0; i<arr.length; i++){
+			if(max<arr[i]){
+				max=max+arr[i];
+				arr[i]=max-arr[i];
+				max=max-arr[i];
+			}
+		}
+			
+		int min=arr[0];
+	        for(int i=0; i<arr.length; i++){
+		if(min>arr[i]){
+			min=min+arr[i];
+			arr[i]=min-arr[i];
+			min=min-arr[i];
+			}
+		}
+	System.out.println("Max: "+max);
+	System.out.println("Min: "+min);
+	}
+}
+28.
+import java.util.Scanner;
+class Question28{
+	public static void main(String[] args){
+		Scanner scan=new Scanner(System.in);
+		System.out.print("How many strings: ");
+		int n= scan.nextInt();
+		String arr[]=new String[n];
+			
+		for(int i=0; i<arr.length; i++){
+			arr[i]=scan.next();
+		}
+			
+		for(String names:arr){
+			System.out.print(names+" ");
+		}
+	}
+}
+29.
+import java.util.Scanner;
+class Question29 {
+	public static void main(String[] args) {
+		Scanner sc =new Scanner(System.in);
+		int [][]ar=new int[3][4];
+
+		for(int i=0;i<ar.length;i++){
+			for(int j=0;j<ar[i].length;j++){
+				ar[i][j]=sc.nextInt();
+			}
+		}
+		System.out.println("Number of arrays: "+ar.length);
+		int count=0;
+		for(int p[]:ar){
+			for(int q:p){
+				count++;
+			}
+		}
+		System.out.println("Total elements: "+count);
+	}
+}
+30.
+import java.util.Scanner;
+class Question30{
+	public static void main(String[] args) {
+		Scanner sc =new Scanner(System.in);
+		int [][]ar=new int[3][3];
+			
+		System.out.println("Enter 3*3 elements:");
+		for(int i=0;i<ar.length;i++){
+			for(int j=0;j<ar[i].length;j++){
+				ar[i][j]=sc.nextInt();
+			}
+		}
+			
+		System.out.println("Diagonal Elements:");
+		for(int i=0;i<ar.length;i++){
+			for(int j=0;j<ar[i].length;j++){
+				if(i==j){
+					System.out.println(ar[i][j]);
+				}
+			}
+		}
+	}
+}
+31.
+import java.util.Scanner;
+	class Question{
+		int rollno;
+		String name;
+		
+		void setData(int rollno, String name)
+		{
+			this.rollno=rollno;
+			this.name=name;
+		}
+		
+		void showData()
+		{
+			System.out.println("Roll No.: "+rollno);
+			System.out.println("Name: "+name);
+		}
+	}
+
+	class Question31{
+		public static void main(String[] args){
+			Scanner scan=new Scanner(System.in);
+			System.out.println("Enter roll no: ");
+			int rollno=scan.nextInt();
+			System.out.println("Enter Name: ");
+			String name=scan.next();
+			
+			Question s1=new Question();
+			s1.setData(rollno,name);
+			s1.showData();
+		}
+	}	
+
+32.
+import java.util.Scanner;
+	class Question
+	{
+		int rno;
+		String name;
+		static int count=0;
+		
+		Question()
+		{
+			count++;
+		}
+		
+		void setData(int rno, String name)
+		{
+			this.rno=rno;
+			this.name=name;
+		}
+		
+		void showData()
+		{
+			System.out.println("Roll No.: "+rno);
+			System.out.println("Name: "+name);
+		}
+	}
+
+	class Question32
+	{
+		public static void main(String[] args)
+		{
+			Scanner scan=new Scanner(System.in);
+			System.out.println("Enter roll no: ");
+			int rno=scan.nextInt();
+			System.out.println("Enter Name: ");
+			String name=scan.next();
+			
+			Question s1=new Question();
+			s1.setData(rno,name);
+			s1.showData();
+			
+			Question s6=new Question();
+			Question s2=new Question();
+			Question s3=new Question();
+			Question s4=new Question();
+			Question s5=new Question();
+			
+			System.out.println("Total objects: "+s1.count);
+			
+		}
+	}	

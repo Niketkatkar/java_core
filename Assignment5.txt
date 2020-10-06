@@ -1,0 +1,340 @@
+43.
+class OneBHK{
+	float roomArea,hallArea,price;
+	OneBHK(){
+		roomArea=100;
+		hallArea=200;
+		price=10000;
+	}
+	OneBHK(float roomArea,float hallArea,float price){
+		this.roomArea=roomArea;
+		this.hallArea=hallArea;
+		this.price=price;
+	}
+	void show(){
+		System.out.println("Room Area : "+roomArea);
+		System.out.println("Hall Area : "+hallArea);
+		System.out.println("Price : "+price);
+	}	
+}
+
+
+class TwoBHK extends OneBHK{
+	float room2Area;
+	static float sum=0;
+	TwoBHK(){
+		room2Area=100;
+	}
+	TwoBHK(float roomArea,float room2Area,float hallArea,float price){
+		this.roomArea=roomArea;
+		this.hallArea=hallArea;
+		this.room2Area=room2Area;
+		this.price=price;
+			
+		sum+=price;
+	}
+	void show(){
+		System.out.println("Room Area : "+roomArea);
+		System.out.println("Room Area : "+room2Area);
+		System.out.println("Hall Area : "+hallArea);
+		System.out.println("Price : "+price);
+	}	
+}
+
+class Question43{
+	public static void main(String args[]){
+		float sum;
+		TwoBHK B1=new TwoBHK(100,100,200,10000);
+		TwoBHK B2=new TwoBHK(200,200,300,20000);
+		TwoBHK B3=new TwoBHK(300,300,400,30000);
+		System.out.println("Flat 1 info : ");
+		B1.show();
+		System.out.println("\n Flat 2 info : ");
+		B2.show();
+		System.out.println("\n Flat 3 info : ");
+		B3.show();
+			
+		sum=TwoBHK.sum;
+		System.out.println("\n\n Total price : "+sum);
+	}
+}
+45.
+import java.util.Scanner;
+class Student{
+	int rollno;
+	float percentage;
+	Student(){
+		rollno=1;
+		percentage=60f;
+	}
+	Student(int rollno,float percentage){
+		this.rollno=rollno;
+		this.percentage=percentage;
+	}
+	void show()
+	{
+		System.out.println("Roll no: "+rollno);
+		System.out.println("Percentage: "+percentage);
+	}
+}
+
+class CollegeStudent extends Student{
+	int semester;
+	CollegeStudent(){
+		semester=1;
+	}
+	CollegeStudent(int rollno, float percentage,int semester){
+		super(rollno,percentage);
+		this.semester=semester;
+	}
+	void show(){
+		super.show();
+		System.out.println("Semister : "+semester+"\n");
+	}
+}
+	
+	
+class SchoolStudent extends Student{
+	String className;
+		
+	SchoolStudent(){
+		className="CS";
+	}
+	SchoolStudent(int rollno, float percentage,String className){
+		super(rollno,percentage);
+		this.className=className;
+	}
+	void show(){
+		super.show();
+		System.out.println("Class Name : "+className+"\n");
+			
+	}
+		
+}
+
+class Question45{
+	public static void main(String args[]){
+		int count=0;
+		CollegeStudent c1=new CollegeStudent(100,90.18f,2);
+		CollegeStudent c2=new CollegeStudent(101,82.0f,3);
+		SchoolStudent s1=new SchoolStudent(101,87.36f,"Science");
+		SchoolStudent s2=new SchoolStudent(102,85.56f,"Commerce");
+		SchoolStudent s3=new SchoolStudent(103,69.19f,"Arts");
+			
+		Student ar[]=new Student[]{c1,c2,s1,s2,s3};
+			
+		for(Student ref: ar){
+			ref.show();
+		}
+			
+		Scanner scan=new Scanner(System.in);
+		System.out.print("\n\n Enter roll no.:");
+		int rollno=scan.nextInt();
+			
+		for(Student ref: ar){
+			if(rollno==ref.rollno)
+			ref.show();
+		}
+			
+		for(Student ref: ar){
+			if(ref.percentage>75)
+			count++;
+		}
+		System.out.print("Number of Students having A grade: "+count);
+	}
+}
+46.
+class Person{
+	String name;
+	int age;
+		
+	Person(String name, int age){
+		this.age=age;
+		this.name=name;
+	}
+		
+	void show(){
+		System.out.println("Name: "+name);
+		System.out.println("Age: "+age);
+	}
+}
+
+class Employee extends Person{
+	float salary;
+		
+	Employee(String name,int age,float salary){
+		super(name,age);
+		this.salary=salary;
+	}
+		
+	void show(){
+		super.show();
+		System.out.println("Salary: "+salary);
+			
+	}
+}
+
+class Question46{
+	public static void main(String[] args){
+		Person p[]={new Employee("Ram",24,15000), new Person("Sham",23)};
+			
+		for(Person ref:p){
+			if(ref instanceof Employee){
+				Employee e=(Employee)ref;
+				ref.show();
+			}
+		}
+	}
+}
+47.
+class A{
+	A(){
+		this(10,20);
+		System.out.println("In non-para of A");	
+	}
+	A(int a)	{
+		System.out.println("In single para of A");  
+	}
+	A(int a1,int a2)	{
+		this(30);
+		System.out.println("In double para of A");  
+	}
+}
+
+class B extends A{
+	B(){
+		this(10);
+		System.out.println("In non-para of B");   
+	}
+	B(int b){
+		System.out.println("In para of B");  
+	}	
+}
+	
+
+class Question47{
+	public static void main(String[] args)
+	{
+		B obj=new B();
+	}
+}
+48.
+import java.util.Scanner;
+abstract class Processor{
+	float data=1;
+	void showData(){
+		System.out.println(data);
+	}
+	abstract void process(float num);
+}
+
+class Factorial extends Processor{
+	void process(float num) {
+		for(float i=num; i>=1; i--){
+			data*=i;
+		}
+	}
+}
+
+class Circle extends Processor{
+	void process(float num) {
+		float area=3.14f*num*num;
+		data=area;
+	}
+}
+
+class Question48{
+	public static void main(String[] args){
+		System.out.println("Select number of choice: 1) Factorial 2) Area of circle");
+		Scanner sc=new Scanner(System.in);
+		int c=sc.nextInt();
+		Processor f1=new Factorial();
+		Processor f2=new Circle();
+			
+		switch(c)
+		{
+			case 1:
+			{
+				float num;
+				System.out.print("Enter a number: ");
+				num=sc.nextInt();
+				f1.process(num);
+				f1.showData();
+				break;				
+			}
+			case 2:
+			{
+				float num;
+				System.out.print("Enter a number: ");
+				num=sc.nextInt();
+				f2.process(num);
+				f2.showData();
+				break;
+			}
+			default:
+			{
+				System.out.print("Inavlid Choice!!");
+			}
+		}
+	}
+}
+49.
+import java.util.Scanner;
+interface Taxable{
+	float salesTax=7;
+	float incomeTax=10.5f;
+	void calcTax();
+}
+
+class Employee implements Taxable{
+	int empId;
+	String name;
+	float salary;
+	Employee(int empId,String name,float salary){
+		this.empId=empId;
+		this.name=name;
+		this.salary=salary;
+	}
+	public void calcTax() {
+		float tax=salary*incomeTax*12/100;
+		System.out.println("Income tax on yearly salary: "+tax);
+	}
+}
+
+class Product implements Taxable{
+	int pid;
+	int quantity;
+	float price;
+	Product(int pid,int quantity,float price){
+		this.pid=pid;
+		this.quantity=quantity;
+		this.price=price;
+	}
+	public void calcTax()
+	{
+		float tax=price*quantity*salesTax/100;
+		System.out.println("Sales tax on unit product: "+tax);
+	}
+}
+	
+class Question49{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Empoyee ID, Name and Salary:");
+		int empId=sc.nextInt();
+		String name=sc.next();
+		float salary=sc.nextFloat();
+			
+		Taxable T1=new Employee(empId,name,salary);
+		T1.calcTax();
+			
+		System.out.println("\n Enter Product ID, Quantity and price:");
+		int pid=sc.nextInt();
+		int quantity=sc.nextInt();
+		float price=sc.nextFloat();
+			
+		Taxable T2=new Product(pid,quantity,price);
+		T2.calcTax();
+	}
+}
